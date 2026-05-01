@@ -1,0 +1,97 @@
+{
+  "info": {
+    "name": "SkillSwap API",
+    "description": "Import this file into Postman (or similar) to explore the core SkillSwap endpoints.",
+    "baseUrl": "{{API_URL}}"
+  },
+  "endpoints": [
+    {
+      "name": "Register",
+      "method": "POST",
+      "path": "/api/auth/register",
+      "body": { "email": "user@example.com", "password": "pass12345", "name": "User", "whatsappNumber": "15551234567" }
+    },
+    {
+      "name": "Login",
+      "method": "POST",
+      "path": "/api/auth/login",
+      "body": { "email": "user@example.com", "password": "pass12345" }
+    },
+    {
+      "name": "Current User",
+      "method": "GET",
+      "path": "/api/auth/me",
+      "headers": { "Authorization": "Bearer <token>" }
+    },
+    {
+      "name": "List Users",
+      "method": "GET",
+      "path": "/api/users",
+      "query": { "skill": "Guitar", "location": "NYC", "q": "Alex" }
+    },
+    {
+      "name": "Update Profile",
+      "method": "PATCH",
+      "path": "/api/users/me",
+      "headers": { "Authorization": "Bearer <token>" },
+      "body": { "bio": "Excited to teach guitar", "location": "Remote" }
+    },
+    {
+      "name": "Create Swap Request",
+      "method": "POST",
+      "path": "/api/requests",
+      "headers": { "Authorization": "Bearer <token>" },
+      "body": {
+        "toUser": "<OBJECT_ID>",
+        "offeredSkill": "Guitar",
+        "requestedSkill": "Spanish",
+        "description": "Ready to trade lessons",
+        "scheduleProposals": [{ "proposedTime": "2025-01-02T18:00:00.000Z" }]
+      }
+    },
+    {
+      "name": "Respond to Request",
+      "method": "PATCH",
+      "path": "/api/requests/:id",
+      "headers": { "Authorization": "Bearer <token>" },
+      "body": {
+        "status": "accepted",
+        "confirmedSchedule": "2025-01-03T18:00:00.000Z",
+        "meetingType": "online",
+        "durationMinutes": 60
+      }
+    },
+    {
+      "name": "List Bookings",
+      "method": "GET",
+      "path": "/api/bookings",
+      "headers": { "Authorization": "Bearer <token>" }
+    },
+    {
+      "name": "Complete Booking",
+      "method": "PATCH",
+      "path": "/api/bookings/:id/complete",
+      "headers": { "Authorization": "Bearer <token>" }
+    },
+    {
+      "name": "Create Review",
+      "method": "POST",
+      "path": "/api/reviews",
+      "headers": { "Authorization": "Bearer <token>" },
+      "body": { "rating": 5, "text": "Great session", "toUser": "<OBJECT_ID>", "booking": "<BOOKING_ID>" }
+    },
+    {
+      "name": "Chat History",
+      "method": "GET",
+      "path": "/api/chat/:partnerId",
+      "headers": { "Authorization": "Bearer <token>" }
+    },
+    {
+      "name": "Send Message",
+      "method": "POST",
+      "path": "/api/chat",
+      "headers": { "Authorization": "Bearer <token>" },
+      "body": { "to": "<OBJECT_ID>", "text": "Hey there!" }
+    }
+  ]
+}
