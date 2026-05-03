@@ -25,22 +25,32 @@ export const getUsers = async (req, res, next) => {
     }
 
     const users = await User.find(query).select('-password');
-    const enhanced = users
-      .map((user) => ({
-        ...user.toObject(),
-        matchScore: computeMatchScore({
+    
+    // Process matches in parallel using Promise.all for speed
+    const enhanced = await Promise.all(
+      users.map(async (user) => {
+        const userObj = user.toObject();
+        const score = await computeMatchScore({
           seekerSkills: req.user?.skillsToLearn?.map((s) => s.name) || [],
           teacherSkills: user.skillsToTeach?.map((s) => s.name) || [],
           seekerLocation: req.user?.location,
           teacherLocation: user.location
-        })
-      }))
-      .sort((a, b) => {
-        if (b.matchScore !== a.matchScore) return b.matchScore - a.matchScore;
-        return (b.rating || 0) - (a.rating || 0);
-      });
+        });
+        
+        return {
+          ...userObj,
+          matchScore: score
+        };
+      })
+    );
 
-    res.json(enhanced);
+    // Sort by AI match score first, then by rating
+    const sorted = enhanced.sort((a, b) => {
+      if (b.matchScore !== a.matchScore) return b.matchScore - a.matchScore;
+      return (b.rating || 0) - (a.rating || 0);
+    });
+
+    res.json(sorted);
   } catch (error) {
     next(error);
   }
