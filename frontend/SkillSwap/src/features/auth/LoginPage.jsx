@@ -50,13 +50,13 @@ const LoginPage = () => {
         <div className="glass rounded-2xl sm:rounded-3xl shadow-2xl p-6 sm:p-8 space-y-5 sm:space-y-6 border-2 sm:border-4 border-white/40 neon-border glass-card">
           <form className="space-y-4 sm:space-y-5" onSubmit={handleSubmit(onSubmit)}>
             <Input
-             className="w-full p-3 rounded-xl border border-white/30 bg-white/10 placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 transition duration-150"
+             className="w-full p-3 rounded-xl border border-white/30 bg-white/10 placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 transition duration-150 text-white"
              placeholder="Email" 
              type="email" {...register('email')} 
              error={errors.email?.message} />
 
             <Input 
-            className="w-full p-3 rounded-xl border border-white/30 bg-white/10 placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 transition duration-150"
+            className="w-full p-3 rounded-xl border border-white/30 bg-white/10 placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 transition duration-150 text-white"
             placeholder="Password" 
             type="password" {...register('password')} 
             error={errors.password?.message} />

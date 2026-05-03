@@ -5,7 +5,7 @@ const Input = forwardRef(({ label, error, ...props }, ref) => (
     <span className="font-bold text-slate-800">{label}</span>
     <input
       ref={ref}
-      className="border-2 sm:border-3 border-purple-200 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 sm:focus:ring-4 focus:ring-purple-400 focus:border-purple-500 bg-white shadow-md hover:shadow-lg transition-all font-medium"
+      className="border-2 sm:border-3 border-purple-200 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base text-slate-900 focus:outline-none focus:ring-2 sm:focus:ring-4 focus:ring-purple-400 focus:border-purple-500 bg-white shadow-md hover:shadow-lg transition-all font-medium"
       {...props}
     />
     {error && <span className="text-xs text-red-600 font-semibold">{error}</span>}
