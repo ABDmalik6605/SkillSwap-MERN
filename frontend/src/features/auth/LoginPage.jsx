@@ -18,7 +18,7 @@ const schema = yup.object({
 const LoginPage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
-  const { isAuthenticated } = useSelector((state) => ({ isAuthenticated: Boolean(state.auth.token) }));
+  const isAuthenticated = useSelector((state) => Boolean(state.auth.token));
   const {
     register,
     handleSubmit,

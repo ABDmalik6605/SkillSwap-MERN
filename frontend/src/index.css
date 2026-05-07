@@ -147,14 +147,33 @@
   opacity: 1;
 }
 
-/* Optional: Smoothly change the text color on hover for better contrast against the new background */
+/* Smoothly change text color on hover — but NOT inside form elements */
 .glass-card:hover h1, 
+.glass-card:hover h2,
+.glass-card:hover h3,
+.glass-card:hover h4,
 .glass-card:hover p, 
 .glass-card:hover .text-sm,
-.glass-card:hover hr {
+.glass-card:hover hr,
+.glass-card:hover span,
+.glass-card:hover label > span {
   color: white;
   border-color: white;
   transition: color 0.5s ease, border-color 0.5s ease;
+}
+
+/* Keep form inputs/selects readable on hover (dark text on white background) */
+.glass-card:hover input,
+.glass-card:hover select,
+.glass-card:hover textarea,
+.glass-card:hover option {
+  color: #0f172a !important;
+}
+
+/* Keep placeholder text visible */
+.glass-card:hover input::placeholder,
+.glass-card:hover textarea::placeholder {
+  color: #94a3b8 !important;
 }
 
 .register-card {
