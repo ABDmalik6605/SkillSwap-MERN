@@ -7,11 +7,11 @@ import { getProfile, getUsers, updateProfile, getWhatsAppLink } from '../control
 const router = Router();
 
 const profileSchema = Joi.object({
-  name: Joi.string().min(2).max(80).optional(),
+  name: Joi.string().min(2).max(80).allow('').optional(),
   bio: Joi.string().max(500).allow('').optional(),
   location: Joi.string().allow('').optional(),
-  avatarUrl: Joi.string().uri().optional(),
-  whatsappNumber: Joi.string().pattern(/^[0-9]+$/).allow('').optional(),
+  avatarUrl: Joi.string().uri().allow('', null).optional(),
+  whatsappNumber: Joi.string().pattern(/^[0-9]+$/).allow('', null).optional(),
   skillsToTeach: Joi.array().items(
     Joi.object({
       name: Joi.string().required(),
