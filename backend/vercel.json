@@ -12,7 +12,6 @@
       "src": "/api/(.*)",
       "dest": "api/index.js",
       "headers": {
-        "Access-Control-Allow-Origin": "https://skillswap.vercel.app",
         "Access-Control-Allow-Methods": "GET, POST, PUT, PATCH, DELETE, OPTIONS",
         "Access-Control-Allow-Headers": "Content-Type, Authorization"
       }

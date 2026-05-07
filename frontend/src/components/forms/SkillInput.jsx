@@ -14,7 +14,7 @@ const SkillInput = ({ onAdd }) => {
         value={value}
         onChange={(e) => setValue(e.target.value)}
         placeholder="Add a skill"
-        className="flex-1 border border-slate-200 rounded-md px-3"
+        className="flex-1 border border-slate-200 rounded-md px-3 text-slate-900"
       />
       <Button type="button" onClick={handleAdd}>
         Add

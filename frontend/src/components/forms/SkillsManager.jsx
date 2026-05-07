@@ -6,6 +6,7 @@ const SkillsManager = (
   { label, 
     skills = [],
     onChange,
+    className = '',
     placeholder = 'e.g., JavaScript, Guitar, Spanish' 
   }) => {
   const [inputValue, setInputValue] = useState('');
@@ -56,14 +57,14 @@ const SkillsManager = (
             onChange={(e) => setInputValue(e.target.value)}
             onKeyPress={handleKeyPress}
             placeholder={placeholder}
-            className="flex-1 border-2 sm:border-3 border-purple-200 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 sm:focus:ring-4 focus:ring-purple-400 focus:border-purple-500 bg-white shadow-md hover:shadow-lg transition-all font-medium"
+            className="flex-1 border-2 sm:border-3 border-purple-200 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base text-slate-900 focus:outline-none focus:ring-2 sm:focus:ring-4 focus:ring-purple-400 focus:border-purple-500 bg-white shadow-md hover:shadow-lg transition-all font-medium"
           />
           
           <div className="flex gap-2">
             <select
               value={level}
               onChange={(e) => setLevel(e.target.value)}
-              className="flex-1 sm:flex-none border-2 sm:border-3 border-purple-200 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base focus:outline-none focus:ring-2 sm:focus:ring-4 focus:ring-purple-400 bg-white shadow-md font-medium"
+              className="flex-1 sm:flex-none border-2 sm:border-3 border-purple-200 rounded-lg sm:rounded-xl px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base text-slate-900 focus:outline-none focus:ring-2 sm:focus:ring-4 focus:ring-purple-400 bg-white shadow-md font-medium"
             >
               <option value="beginner">Beginner</option>
               <option value="intermediate">Intermediate</option>
