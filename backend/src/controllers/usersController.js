@@ -26,23 +26,21 @@ export const getUsers = async (req, res, next) => {
 
     const users = await User.find(query).select('-password');
     
-    // Process matches in parallel using Promise.all for speed
-    const enhanced = await Promise.all(
-      users.map(async (user) => {
-        const userObj = user.toObject();
-        const score = await computeMatchScore({
-          seekerSkills: req.user?.skillsToLearn?.map((s) => s.name) || [],
-          teacherSkills: user.skillsToTeach?.map((s) => s.name) || [],
-          seekerLocation: req.user?.location,
-          teacherLocation: user.location
-        });
-        
-        return {
-          ...userObj,
-          matchScore: score
-        };
-      })
-    );
+    // Compute AI match scores using NLP semantic similarity
+    const enhanced = users.map((user) => {
+      const userObj = user.toObject();
+      const score = computeMatchScore({
+        seekerSkills: req.user?.skillsToLearn?.map((s) => s.name) || [],
+        teacherSkills: user.skillsToTeach?.map((s) => s.name) || [],
+        seekerLocation: req.user?.location,
+        teacherLocation: user.location
+      });
+      
+      return {
+        ...userObj,
+        matchScore: score
+      };
+    });
 
     // Sort by AI match score first, then by rating
     const sorted = enhanced.sort((a, b) => {

@@ -29,7 +29,24 @@ const profileSchema = Joi.object({
   badges: Joi.array().items(Joi.string()).optional()
 }).min(1); // At least one field must be provided
 
-router.get('/', getUsers);
+// Optional auth: populates req.user if token is present, but doesn't block
+const optionalAuth = async (req, res, next) => {
+  try {
+    const authHeader = req.headers.authorization || '';
+    const token = authHeader.startsWith('Bearer ') ? authHeader.split(' ')[1] : null;
+    if (token) {
+      const jwt = (await import('jsonwebtoken')).default;
+      const config = (await import('../config/index.js')).default;
+      const User = (await import('../models/User.js')).default;
+      const decoded = jwt.verify(token, config.jwtSecret);
+      const user = await User.findById(decoded.id).select('-password');
+      if (user) req.user = user;
+    }
+  } catch (_) { /* ignore auth errors for optional auth */ }
+  next();
+};
+
+router.get('/', optionalAuth, getUsers);
 router.get('/:id', getProfile);
 router.patch('/me', authenticate, validate(profileSchema), updateProfile);
 router.get('/:id/whatsapp', authenticate, getWhatsAppLink);
