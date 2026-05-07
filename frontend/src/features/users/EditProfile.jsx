@@ -81,7 +81,7 @@ const EditProfile = () => {
                 className="w-32 h-32 rounded-full border-4 border-white shadow-2xl object-cover"
               />
               <div className="absolute inset-0 bg-black/40 rounded-full opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                <Icon icon={Icons.edit} size="xl" className="text-white" />
+                <span className="text-white text-2xl">✏️</span>
               </div>
             </div>
             <div className="w-full space-y-2">
