@@ -96,7 +96,7 @@ const ContactPage = () => (
           {/* Contact Info Cards */}
           <div className="grid sm:grid-cols-2 gap-4">
             {[
-              { icon: Icons.mapPin, title: 'Our Location', text: 'FAST NUCES, Karachi, Pakistan', color: 'from-blue-500 to-cyan-500' },
+              { icon: Icons.mapPin, title: 'Our Location', text: 'FAST NUCES, Lahore, Pakistan', color: 'from-blue-500 to-cyan-500' },
               { icon: Icons.chat, title: 'Email Us', text: 'hello@skillswap.app', color: 'from-purple-500 to-pink-500' },
               { icon: Icons.globe, title: 'Platform', text: 'Available worldwide, 24/7', color: 'from-green-500 to-teal-500' },
               { icon: Icons.clock, title: 'Support Hours', text: 'Mon–Fri, 9am – 6pm PKT', color: 'from-orange-500 to-yellow-500' }
@@ -120,8 +120,8 @@ const ContactPage = () => (
               <span className="font-bold text-slate-900 text-sm">Find Us on the Map</span>
             </div>
             <iframe
-              title="SkillSwap Location — FAST NUCES Karachi"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3618.948!2d67.0740!3d24.8607!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3eb33e9b7e2c5b5d%3A0x4e5a9b1b8e2c5b5d!2sFAST%20NUCES%20Karachi!5e0!3m2!1sen!2s!4v1680000000000!5m2!1sen!2s"
+              title="SkillSwap Location — FAST NUCES Lahore"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3403.111!2d74.301!3d31.4815!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x391903f08ebc7e35%3A0x27f9b0f18c64273c!2sFAST%20NUCES%20Lahore!5e0!3m2!1sen!2s!4v1715100000000!5m2!1sen!2s"
               width="100%"
               height="300"
               style={{ border: 0 }}

@@ -76,16 +76,15 @@ const Footer = () => (
         <div className="space-y-4">
           <h4 className="font-black uppercase text-sm tracking-wider text-white/90">Contact</h4>
           <ul className="space-y-2 text-sm text-white/75">
-            <li>📍 FAST NUCES, Karachi, Pakistan</li>
+            <li>📍 FAST NUCES, Lahore, Pakistan</li>
             <li>✉️ hello@skillswap.app</li>
             <li>🌐 skillswap.app</li>
           </ul>
         </div>
       </div>
 
-      <div className="border-t border-white/20 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-sm text-white/70">
+      <div className="border-t border-white/20 mt-10 pt-6 text-center text-sm text-white/70">
         <p>© {new Date().getFullYear()} SkillSwap. Built for peer learning.</p>
-        <p>Made with ❤️ for learners worldwide 🌍</p>
       </div>
     </div>
   </footer>
