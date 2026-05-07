@@ -154,7 +154,7 @@ const RequestSwapModal = ({ user, isOpen, onClose }) => {
           zIndex: 10
         }}>
           <h3 className="text-lg sm:text-xl font-bold gradient-text flex items-center gap-2">
-            <Icon icon={Icons.sparklesSolid} size="md" className="text-purple-500" />
+            <span>✨</span>
             Request Swap with {user.name}
           </h3>
           <button
@@ -162,7 +162,7 @@ const RequestSwapModal = ({ user, isOpen, onClose }) => {
             className="p-2 hover:bg-purple-100 rounded-full transition-all hover:scale-110 active:scale-95"
             aria-label="Close modal"
           >
-            <Icon icon={Icons.xMark} size="lg" className="text-slate-600" />
+            <span className="text-slate-600 text-xl">✖</span>
           </button>
         </div>
 
@@ -177,7 +177,7 @@ const RequestSwapModal = ({ user, isOpen, onClose }) => {
               <div>
                 <p className="font-bold text-slate-900">{user.name}</p>
                 <p className="text-sm text-slate-600 flex items-center gap-1">
-                  <Icon icon={Icons.mapPin} size="sm" />
+                  <span>📍</span>
                   {user.location || 'Remote'}
                 </p>
               </div>
@@ -186,7 +186,7 @@ const RequestSwapModal = ({ user, isOpen, onClose }) => {
             {/* Skills Section */}
             <div className="space-y-4">
               <div className="flex items-start gap-2">
-                <Icon icon={Icons.handRaised} size="md" className="text-purple-500 mt-1 flex-shrink-0" />
+                <span className="text-xl mt-1 flex-shrink-0">🤝</span>
                 <div className="flex-1">
                   <Input
                     label="What can you offer?"
@@ -198,7 +198,7 @@ const RequestSwapModal = ({ user, isOpen, onClose }) => {
               </div>
               
               <div className="flex items-start gap-2">
-                <Icon icon={Icons.academicCap} size="md" className="text-blue-500 mt-1 flex-shrink-0" />
+                <span className="text-xl mt-1 flex-shrink-0">🎓</span>
                 <div className="flex-1">
                   <Input
                     label="What do you want to learn?"
@@ -213,7 +213,7 @@ const RequestSwapModal = ({ user, isOpen, onClose }) => {
             {/* Message */}
             <label className="flex flex-col gap-2 text-sm">
               <span className="font-bold text-slate-800 flex items-center gap-2">
-                <Icon icon={Icons.chatBubbleLeftRight} size="sm" className="text-emerald-500" />
+                <span className="text-emerald-500">💬</span>
                 Message (optional)
               </span>
               <textarea
@@ -227,7 +227,7 @@ const RequestSwapModal = ({ user, isOpen, onClose }) => {
             {/* Schedule Section */}
             <div className="border-t-2 border-purple-200 pt-4 space-y-3">
               <h4 className="font-bold text-slate-800 flex items-center gap-2">
-                <Icon icon={Icons.calendarDays} size="md" className="text-orange-500" />
+                <span>📅</span>
                 Suggest Session Times (optional)
               </h4>
               
@@ -246,7 +246,7 @@ const RequestSwapModal = ({ user, isOpen, onClose }) => {
 
             {/* Meeting Link */}
             <div className="flex items-start gap-2">
-              <Icon icon={Icons.link} size="md" className="text-cyan-500 mt-7 flex-shrink-0" />
+              <span className="text-xl mt-7 flex-shrink-0">🔗</span>
               <div className="flex-1">
                 <Input
                   label="Meeting Link (optional)"
@@ -259,7 +259,7 @@ const RequestSwapModal = ({ user, isOpen, onClose }) => {
             {/* Action Buttons */}
             <div className="flex flex-col sm:flex-row gap-3 pt-2">
               <Button type="submit" className="flex-1 btn-gradient flex items-center gap-2 justify-center text-base py-3">
-                <Icon icon={Icons.paperAirplane} size="md" />
+                <span>🚀</span>
                 Send Request
               </Button>
               <Button

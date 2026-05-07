@@ -91,7 +91,7 @@ const Modal = ({ title, children, isOpen, onClose, footer }) => {
             alignItems: 'center',
             gap: '8px'
           }}>
-            <Icon icon={Icons.sparklesSolid} size="md" className="text-purple-500" />
+            <span>✨</span>
             {title}
           </h3>
           <button
@@ -102,13 +102,16 @@ const Modal = ({ title, children, isOpen, onClose, footer }) => {
               border: 'none',
               backgroundColor: 'transparent',
               cursor: 'pointer',
-              transition: 'all 0.2s'
+              transition: 'all 0.2s',
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'center'
             }}
-            onMouseEnter={(e) => e.target.style.backgroundColor = 'rgb(243, 232, 255)'}
-            onMouseLeave={(e) => e.target.style.backgroundColor = 'transparent'}
+            onMouseEnter={(e) => e.currentTarget.style.backgroundColor = 'rgb(243, 232, 255)'}
+            onMouseLeave={(e) => e.currentTarget.style.backgroundColor = 'transparent'}
             aria-label="Close modal"
           >
-            <Icon icon={Icons.xMark} size="lg" className="text-slate-600" />
+            <span style={{ fontSize: '20px', color: '#475569' }}>✖</span>
           </button>
         </div>
 
